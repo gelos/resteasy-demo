@@ -1,0 +1,1 @@
+A RESTEasy demo, serving up XML in Tomcat
