@@ -17,8 +17,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.apache.commons.httpclient.HttpStatus;
-
 import com.lyndseypadget.resteasy.model.Apple;
 import com.lyndseypadget.resteasy.model.FruitComparator;
 
@@ -45,7 +43,7 @@ public class FruitService {
 	public Response getApple(@PathParam("id") String id) {
 		Apple found = apples.get(id);
 		if(found == null) {
-			return Response.status(HttpStatus.SC_NOT_FOUND).build();
+			return Response.status(404).build();
 		}
 		return Response.ok(found).build();
 	}
@@ -54,7 +52,7 @@ public class FruitService {
 	@Path("/apples/{id}")
 	public Response deleteApple(@PathParam("id") String id) {
 		apples.remove(id);
-		return Response.status(HttpStatus.SC_OK).build();
+		return Response.status(200).build();
 	}
 	
 	@POST
@@ -66,6 +64,6 @@ public class FruitService {
 		apple.setId(newId);
 		apples.put(newId, apple);
 		
-		return Response.status(HttpStatus.SC_CREATED).header("Location", newId).build();
+		return Response.status(201).header("Location", newId).build();
 	}
 }
