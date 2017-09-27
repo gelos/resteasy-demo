@@ -1,25 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>com.lyndseypadget</groupId>
   <artifactId>resteasy</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-
   <name>resteasy</name>
-  
   <repositories>
     <repository>
       <id>org.jboss.resteasy</id>
       <url>http://repository.jboss.org/maven2/</url>
     </repository>
     </repositories>
-
   <dependencies>
-
-
-
     <dependency>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-jaxrs</artifactId>
@@ -35,9 +28,7 @@
         <artifactId>resteasy-jettison-provider</artifactId>
         <version>3.0.0.Final</version>
     </dependency>
-
   </dependencies>
-
   <build>
     <plugins>
       <plugin>

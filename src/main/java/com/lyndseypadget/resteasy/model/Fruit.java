@@ -2,7 +2,7 @@ package com.lyndseypadget.resteasy.model;
 
 import javax.xml.bind.annotation.XmlElement;
 
-public class Fruit {
+public abstract class Fruit {
 	private String id;
     private String variety;
 
