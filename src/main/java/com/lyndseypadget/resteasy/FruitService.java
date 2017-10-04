@@ -18,22 +18,31 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.lyndseypadget.resteasy.model.Apple;
+import com.lyndseypadget.resteasy.model.Apples;
 import com.lyndseypadget.resteasy.model.FruitComparator;
 
 @Path("/fruits")
 public class FruitService {
 
-	private static Comparator<Apple> comparator = new FruitComparator<Apple>();
 	private static Map<String, Apple> apples = new TreeMap<String, Apple>();
+	private static Comparator<Apple> comparator = new FruitComparator<Apple>();
 	private static int appleCount = 0;
 
 	@GET
 	@Path("/apples")
-	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public List<Apple> getApples() {
 		List<Apple> retVal = new ArrayList<Apple>(apples.values());
 		Collections.sort(retVal, comparator);
+		return retVal;
+	}
+
+	@GET
+	@Path("/apples-wrapped")
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	public Apples getApplesWrapped() {
+		Apples retVal = new Apples();
+		retVal.setApples(apples.values());
 		return retVal;
 	}
 
